@@ -1,0 +1,83 @@
+<html>
+    <title>
+        Categorias existentes na IVM
+    </title>
+    <style>
+        body{
+            background-image: url(https://j3fau2wsnso1qkiarz7keon5-wpengine.netdna-ssl.com/wp-content/uploads/2016/10/smart_vending_machine_781x512.jpg);
+        }
+
+        p{
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .button {
+            border: none;
+            background-color: #eb6b8b;
+            color: rgb(255, 255, 255);
+            width: 290px;
+            height: 70px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .button:hover {
+            background-color: rgb(241, 151, 181);
+        }
+
+        #categoria {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse:initial;
+            width: 25%;
+        }
+
+        #categoria td, #categoria th {
+            padding: 8px;
+            background-color: #ffffff;
+        }
+
+        #categoria th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #f54873;
+            color: white;
+        }
+
+
+    </style>
+
+    <body>
+        {% if cursor %}
+        <table id="categoria">  
+            <thread>
+                <tr>
+                    <th>Nome</th>
+                </tr>
+            </thread> 
+                <tbody>
+                    {% for record in cursor %}
+                    <tr>
+                        <td>{{ record[0] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+        {% else %}
+            <p> Erro: ao obter dados da base de dados!</p>
+        {% endif %}
+        <p><br>
+            <a href="inserir_categoria">
+                <input type="button" class="button" onclick="b1" value="Inserir Categoria">
+            </a>
+            
+            <a href="remover_categoria">
+                <input type="button" class="button" onclick="b2" value="Remover Categoria">
+            </a>
+        </p>
+    </body>
+</html>
